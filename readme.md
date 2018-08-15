@@ -13,7 +13,7 @@ A website created with JavaScript and HTML where a user can input a sentence and
 | Spec | Input | Output |
 | :-------------     | :------------- | :------------- |
 | **The program does nothing to non-alphabetical characters, since they do not contain consonants or vowels.** | Input: "3" | Output: "3" |
-| **The program adds "way" to the end of multi-letter words beginning with a vowel.** | Input: "egg" | Output: "eggway" |
+| **The program adds "way" to the end of words beginning with a vowel.** | Input: "egg" | Output: "eggway" |
 | **If the word begins with "y", the program moves "y" to the end and adds "ay"** | Input: "year" | Output: "earyay" |
 | **The program moves the first letter of a single word beginning with a single consonant to the end and adds "ay"** | Input: "cat" | Output: "atcay" |
 | **The program moves all consonants before the first vowel of a single word to the end and adds "ay"**| Input: "trap" | Output: "aptray"|
