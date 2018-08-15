@@ -6,13 +6,14 @@ var consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q
 
 var translator = function(userInput) {
   if (consonants.includes(userInput[0])) {
-    var indexOfFirst = userInput.search(vowelRegex)
-    if (userInput[0]=== "q") {
-      var qSlice = userInput.slice(2);
-      return qSlice + userInput.slice(0,2) + "ay";
-    } else if (indexOfFirst > 1) {
-      var slicedInput = userInput.slice(indexOfFirst)
-      return slicedInput + userInput.slice(0, indexOfFirst) + "ay";
+    var indexOfFirstV = userInput.search(vowelRegex);
+    var indexOfFirstQ = userInput.search("q");
+    if (indexOfFirstQ < indexOfFirstV) {
+      var qSlice = userInput.slice(indexOfFirstQ + 2);
+      return qSlice + userInput.slice(0, indexOfFirstV + 1) + "ay";
+    } else if (indexOfFirstV > 1) {
+      var slicedInput = userInput.slice(indexOfFirstV)
+      return slicedInput + userInput.slice(0, indexOfFirstV) + "ay";
     } else {
       var slicedInput = userInput.slice(1);
       return slicedInput + userInput[0] + "ay";
