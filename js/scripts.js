@@ -1,16 +1,13 @@
 //back-end
 var letters = /[a-z]/
 var vowels = ["a", "e", "i", "o", "u", "y"];
+var vowelRegex = /a|e|i|o|u|y/
 var consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w",  "x", "z"];
 
 var translator = function(userInput) {
   if (consonants.includes(userInput[0])) {
-    for (var index = -1; userInput.indexOf(vowels[index]) < 0; index++) {
-      var vowelLocation = index + 1;
-      var indexOfFirst = userInput.indexOf(vowels[vowelLocation]);
-    }
-    alert(indexOfFirst);
-
+    var indexOfFirst = userInput.search(vowelRegex)
+    //Move all consonants before first vowel to the end and add "ay"
     if (indexOfFirst > 1) {
       var slicedInput = userInput.slice(indexOfFirst)
       return slicedInput + userInput.slice(0, indexOfFirst) + "ay";
