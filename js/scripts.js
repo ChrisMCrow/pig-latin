@@ -4,7 +4,12 @@ var vowels = ["a", "e", "i", "o", "u", "y"];
 var consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w",  "x", "z"];
 
 var translator = function(userInput) {
-  if (userInput[0] === "y"){
+  if {
+
+  } else if (consonants.includes(userInput[0])) {
+    var slicedInput = userInput.slice(1);
+    return slicedInput + userInput[0] + "ay";
+  } else if (userInput[0] === "y"){
     userInput = userInput.slice(1);
     return userInput + 'yay'
   } else if (vowels.includes(userInput[0])){
