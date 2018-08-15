@@ -4,7 +4,9 @@ var vowels = ["a", "e", "i", "o", "u", "y"];
 var consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w",  "x", "z"];
 
 var translator = function(userInput) {
-  if (vowels.includes(userInput)){
+  if (vowels.includes(userInput[0])){
+    return userInput + 'way';
+  } else if (vowels.includes(userInput)){
     return userInput + 'way';
   } else {
     return userInput;
