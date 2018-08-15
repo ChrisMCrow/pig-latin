@@ -5,10 +5,11 @@ var vowelRegex = /a|e|i|o|u|y/
 var consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w",  "x", "z"];
 
 var translator = function(userInput) {
+  userInput = userInput.toLowerCase();
   if (consonants.includes(userInput[0])) {
     var indexOfFirstV = userInput.search(vowelRegex);
     var indexOfFirstQ = userInput.search("q");
-    if (indexOfFirstQ < indexOfFirstV) {
+    if (indexOfFirstQ < indexOfFirstV && indexOfFirstQ > -1) {
       var qSlice = userInput.slice(indexOfFirstQ + 2);
       return qSlice + userInput.slice(0, indexOfFirstV + 1) + "ay";
     } else if (indexOfFirstV > 1) {
