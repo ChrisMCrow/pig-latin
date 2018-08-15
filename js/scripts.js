@@ -1,32 +1,27 @@
 //back-end
-var letters = /[a-z]/
-var vowels = ["a", "e", "i", "o", "u", "y"];
-var vowelRegex = /a|e|i|o|u|y/
-var consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w",  "x", "z"];
+// var vowels = ["a", "e", "i", "o", "u", "y"];
+var vowels = /a|e|i|o|u|y/
+var consonants = /[^aeiouy\d]/
 
 var translator = function(initialInput) {
   var initialInputLC = initialInput.toLowerCase();
   var userInputArray = initialInputLC.split(" ");
   var pigLatinArray = userInputArray.map(function(userInput) {
-    if (consonants.includes(userInput[0])) {
-      var indexOfFirstV = userInput.search(vowelRegex);
-      var indexOfFirstQ = userInput.search("q");
+    var indexOfFirstV = userInput.search(vowels);
+    var indexOfFirstQ = userInput.search("q");
+    var indexOfFirstC = userInput.search(consonants);
+    if (indexOfFirstC === 0) {
       if (indexOfFirstQ < indexOfFirstV && indexOfFirstQ > -1) {
         var qSlice = userInput.slice(indexOfFirstQ + 2);
         return qSlice + userInput.slice(0, indexOfFirstV + 1) + "ay";
-      } else if (indexOfFirstV > 1) {
+      } else {
         var slicedInput = userInput.slice(indexOfFirstV)
         return slicedInput + userInput.slice(0, indexOfFirstV) + "ay";
-      } else {
-        var slicedInput = userInput.slice(1);
-        return slicedInput + userInput[0] + "ay";
       }
-    } else if (userInput[0] === "y"){
-      userInput = userInput.slice(1);
-      return userInput + 'yay'
-    } else if (vowels.includes(userInput[0])){
-      return userInput + 'way';
-    } else if (vowels.includes(userInput)){
+    } else if (initialInputLC[0] === "y"){
+      var slicedInput = userInput.slice(1)
+      return slicedInput + "yay";
+    } else if (indexOfFirstV === 0){
       return userInput + 'way';
     } else {
       return userInput;

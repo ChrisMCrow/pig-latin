@@ -30,7 +30,7 @@ A website created with JavaScript and HTML where a user can input a sentence and
 2. Open the index.html file in your browser of choice.
 
 ## Known Bugs
-* No known bugs at this time.
+* If the non-first word starts with "y", the program will return word+way without moving the "y".
 
 ## Technologies Used
 * HTML
