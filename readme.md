@@ -12,11 +12,18 @@ A website created with JavaScript and HTML where a user can input a sentence and
 ### Specs
 | Spec | Input | Output |
 | :-------------     | :------------- | :------------- |
-| **Program Gathers User Input** | User input: "pants" | Output: "pants" |
-| **Program Removes Spaces from User Input**| User Input: "pants pants" | Output: "pantspants" |
-| **Program Removes Punctuation from User Input**| Input: "p#an^t@s  /p(ant%s" | Output: "pantspants" |
-| **Program Assigns Characters Numeric Values** | Input: "pants" | Output: "3 1 1 1 1" |
-| **Program Sums Character Values**| Input: "3 1 1 1 1" | Page Displays: 7 |
+| **The program does nothing to non-alphabetical characters, since they do not contain consonants or vowels.** | Input: "3" | Output: "3" |
+| **The program adds "ay" to single-letter words beginning with a vowel.
+** | Input: "i" | Output: "iay" |
+| **The program adds "ay" to single letter words beginning with consonants**| Input: "d" | Output: "day" |
+| **The program adds "way" to the end of multi-letter words beginning with a vowel.** | Input: "egg" | Output: "eggway" |
+| **If the word begins with "y", the program moves "y" to the end and adds "ay"** | Input: "year" | Output: "earyay" |
+| **The program moves the first letter of a single word beginning with a single consonant to the end and adds "ay"** | Input: "cat" | Output: "atcay" |
+| **The program moves all consonants before the first vowel of a single word to the end and adds "ay"**| Input: "trap" | Output: "aptray"|
+| **If the word begins with "q", the program moves "q" plus the following vowel to the end of the word and adds "ay" | Input: "quit" | Output: "itquay" |
+| **If the initial consonant cluster contains "q", the program moves the consonant cluster plus the following vowel to the end of the word and adds "ay"** | Input: "squeal" | Output: "ealsquay" |
+| **The program follows each of the preceding specs for multiple-word entries** | Input: "I eat the quick yellow chicken" | Output: "Iay eatway ethay ickquay ellowyay ickenchay"
+
 
 ## Setup/Installation Requirements
 
