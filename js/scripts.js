@@ -7,8 +7,10 @@ var consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q
 var translator = function(userInput) {
   if (consonants.includes(userInput[0])) {
     var indexOfFirst = userInput.search(vowelRegex)
-    //Move all consonants before first vowel to the end and add "ay"
-    if (indexOfFirst > 1) {
+    if (userInput[0]=== "q") {
+      var qSlice = userInput.slice(2);
+      return qSlice + userInput.slice(0,2) + "ay";
+    } else if (indexOfFirst > 1) {
       var slicedInput = userInput.slice(indexOfFirst)
       return slicedInput + userInput.slice(0, indexOfFirst) + "ay";
     } else {
